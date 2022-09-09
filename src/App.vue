@@ -32,24 +32,24 @@ export default {
   },
   methods:{
     fetchMovies(){
-      axios.get(`${this.BASE_URI}/search/movie`),{
+      axios.get((`${this.BASE_URI}/search/movie`),{
         params: {
           api_key: this.api_key,
           query: this.query
         }
-      }
+      })
       .then((res) => {
         console.log(res)
         this.movies = res.data.results 
       })
     },
     fetchTvSeries(){
-      axios.get(`${this.BASE_URI}/search/tv`),{
+      axios.get((`${this.BASE_URI}/search/tv`),{
         params: {
           api_key: this.api_key,
           query: this.query
         }
-      }
+      })
       .then((res) => {
         console.log(res)
         this.tvSeries = res.data.results
@@ -57,8 +57,10 @@ export default {
     },
 
   },
-  beforMount(){
+  beforeMount(){
     this.fetchMovies()
+    this.fetchTvSeries()
+    
   }
 
 }
@@ -66,5 +68,13 @@ export default {
 </script>
 
 <style lang="scss">
-
+  @import './styles//general.scss';
+  #app{
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    li{
+      color: white;
+    }
+  }
 </style>
