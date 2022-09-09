@@ -12,7 +12,11 @@
   export default {
     name: 'HeaderBar',
     props: {
-      
+    },
+    data(){
+        return{
+            search:'',
+        }
     }
   }
   </script>
