@@ -1,6 +1,10 @@
 <template>
     <header>
-  
+        <div class="container">
+            <div class="search-bar">
+            <input v-model="search" type="text">
+            </div>
+        </div>
     </header>
   </template>
   
