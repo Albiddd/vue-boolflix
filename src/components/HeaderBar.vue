@@ -2,7 +2,7 @@
     <header>
         <div class="container">
             <div class="logo">
-                <img src="../assets/Boolflix-logo.png" alt="">
+                <img @click="$emit('reset')" src="../assets/Boolflix-logo.png" alt="">
             </div>
             <div class="search-bar">    
                 <input v-model="search" type="text" @keyup.enter="$emit('search', search)" placeholder="Search a title">
@@ -39,6 +39,7 @@
             padding: 10px 30px;
             .logo{
                 padding-top: 5px;
+                cursor: pointer;
             }
             .search-bar{
                 display: flex;

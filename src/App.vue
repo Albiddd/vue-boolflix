@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <HeaderBar @search="onSearch" />
+    <HeaderBar @search="onSearch" @reset="reset" />
     <MainComponent :movies="movies" :tvSeries="tvSeries" :search="query" />
     <!-- <ul>
       <li v-for="movie in movies" :key="movie.id" >
@@ -79,6 +79,11 @@ export default {
           this.tvSeries = res.data.results
         })
       },
+      reset(){
+        this.query = ''
+        this.fetchPopularMovies()
+        this.fetchPopularSeries()
+      }
   },
   beforeMount(){
     this.fetchPopularMovies()
