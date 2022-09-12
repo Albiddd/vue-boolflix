@@ -2,11 +2,11 @@
     <header>
         <div class="container">
             <div class="logo">
-                BOOLFLIX
+                <img src="../assets/Boolflix-logo.png" alt="">
             </div>
             <div class="search-bar">    
                 <input v-model="search" type="text" @keyup.enter="$emit('search', search)" placeholder="Search a title">
-                <div>
+                <div class="search-button">
                     <img src="../assets/search.png" alt="">
                 </div>
             </div>
@@ -31,16 +31,14 @@
   <style scoped lang="scss">
     
     header{
-        margin-bottom: 30px;
+        margin-bottom: 10px;
         .container{
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 30px;
+            padding: 10px 30px;
             .logo{
-                color: red;
-                font-size: 36px;
-                font-weight: 700;
+                padding-top: 5px;
             }
             .search-bar{
                 display: flex;
@@ -54,7 +52,7 @@
                     color: white;
                     outline: none;
                 }
-                div{
+                .search-button{
                     background-color: rgba(0, 0, 0, 0.282);
                     height: 100%;
                     width: 30px;

@@ -1,7 +1,7 @@
 <template>
     <main>
         <div>
-            <h2>Movies</h2>
+            <h2>{{search == '' ? 'Popular Movies' : 'Movies Found'}}</h2>
             <div class="card-wrapper">
 
                 <MoviesContainer
@@ -17,7 +17,7 @@
             </div>
         </div>
         <div>
-            <h2>TV Series</h2>
+            <h2>{{search =='' ? 'Popular TV Series' : 'TV Series Found'}}</h2>
             <div class="card-wrapper">
                 <MoviesContainer
                     v-for="movie in tvSeries"

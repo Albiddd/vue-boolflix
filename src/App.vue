@@ -57,11 +57,35 @@ export default {
         this.tvSeries = res.data.results
       })
     },
-
+      fetchPopularMovies(){
+        axios.get((`${this.BASE_URI}/movie/popular`),{
+          params: {
+            api_key: this.api_key,
+          }
+        })
+        .then((res) => {
+          console.log(res)
+          this.movies = res.data.results 
+        })
+      },
+      fetchPopularSeries(){
+        axios.get((`${this.BASE_URI}/tv/popular`),{
+          params: {
+            api_key: this.api_key,
+          }
+        })
+        .then((res) => {
+          console.log(res)
+          this.tvSeries = res.data.results
+        })
+      },
   },
+  beforeMount(){
+    this.fetchPopularMovies()
+    this.fetchPopularSeries()
+  }
+  }
 
-
-}
 
 </script>
 
@@ -71,8 +95,6 @@ export default {
     width: 100%;
     height: 100vh;
     background-color: black;
-    li{
-      color: white;
-    }
+   overflow: hidden;
   }
 </style>

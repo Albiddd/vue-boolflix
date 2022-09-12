@@ -34,7 +34,7 @@
                         <font-awesome-icon v-for="index in stars"
                         :key="index" icon="fa-solid fa-star" />
                         <font-awesome-icon v-for="index in 5-stars"
-                        :key="index" icon="fa-regular fa-star" />
+                        :key="index+1000" icon="fa-regular fa-star" />
                         
                     </div>
         
@@ -97,7 +97,6 @@
             color: white;
             background-color: rgba(0, 0, 0, 0.82);
             border-radius: 8px;
-            isolation: isolate;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -118,6 +117,7 @@
 
             .info-container{
                  opacity: 1;
+                 
             }
         }
 
