@@ -5,11 +5,17 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
-    
+
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+          -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; 
+  
   }
   *::-webkit-scrollbar {
     height: 10px; 
-    margin-block: 0;
   }
   
   *::-webkit-scrollbar-track {
@@ -19,6 +25,7 @@
   
   *::-webkit-scrollbar-thumb {
     background-color: rgba(196, 196, 196, 0.218);
+    border-radius: 8px;
   }
 
   *::-webkit-scrollbar-thumb:hover {

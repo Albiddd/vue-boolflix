@@ -61,6 +61,8 @@
         }
         .card-wrapper{
             display: flex;
+            gap: 10px;
+            padding: 10px 0;
             margin: 15px 0 60px 0;
             overflow-y: hidden;
             overflow-x: scroll;
