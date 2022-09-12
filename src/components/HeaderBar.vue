@@ -5,7 +5,7 @@
                 BOOLFLIX
             </div>
             <div class="search-bar">    
-                <input v-model="search" type="text" placeholder="Search a title">
+                <input v-model="search" type="text" @keyup.enter="$emit('search', search)" placeholder="Search a title">
                 <div>
                     <img src="../assets/search.png" alt="">
                 </div>
@@ -38,7 +38,7 @@
             align-items: center;
             padding: 15px 30px;
             .logo{
-                color: white;
+                color: red;
                 font-size: 36px;
                 font-weight: 700;
             }

@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <HeaderBar/>
-    <MainComponent/>
-    <ul>
+    <HeaderBar @search="onSearch" />
+    <MainComponent :movies="movies" :tvSeries="tvSeries" :search="query" />
+    <!-- <ul>
       <li v-for="movie in movies" :key="movie.id" >
         {{movie.original_title}}
       </li>
-    </ul>
+    </ul> -->
   </div>
 </template>
 
@@ -26,12 +26,15 @@ export default {
       movies: [],
       tvSeries: [],
       api_key: '25c2b2a4e398c512c00e56a4e4c2468a',
-      query: 'return',
+      query: '',
       BASE_URI: 'https://api.themoviedb.org/3',
     }
   },
+
   methods:{
-    fetchMovies(){
+    onSearch(data){
+        this.query = data
+   
       axios.get((`${this.BASE_URI}/search/movie`),{
         params: {
           api_key: this.api_key,
@@ -42,8 +45,7 @@ export default {
         console.log(res)
         this.movies = res.data.results 
       })
-    },
-    fetchTvSeries(){
+    
       axios.get((`${this.BASE_URI}/search/tv`),{
         params: {
           api_key: this.api_key,
@@ -57,11 +59,7 @@ export default {
     },
 
   },
-  beforeMount(){
-    this.fetchMovies()
-    this.fetchTvSeries()
-    
-  }
+
 
 }
 

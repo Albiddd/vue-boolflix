@@ -2,25 +2,34 @@
     <main>
         <div>
             <h2>Movies</h2>
-            <MoviesContainer
-                v-for="movie in movies"
-                :key="movie.id"
-                :src="`https://www.themoviedb.org/t/p/original${movie.poster_path}`"
-                :name="movie.title"
-                :originalName="movie.original_title"
-                :language="movie.original_language"
-                :vote="movie.vote_average"/>
+            <div class="card-wrapper">
+
+                <MoviesContainer
+                    v-for="movie in movies"
+                    :key="movie.id"
+                    :src="`https://www.themoviedb.org/t/p/w500${movie.poster_path}`"
+                    :titleName="movie.title"
+                    :originalName="movie.original_title"
+                    :language="movie.original_language"
+                    :vote="movie.vote_average"
+                    :overview="movie.overview"/>
+
+            </div>
         </div>
         <div>
             <h2>TV Series</h2>
-            <MoviesContainer
-                v-for="movie in tvSeries"
-                :key="movie.id"
-                :src="`https://www.themoviedb.org/t/p/original${movie.poster_path}`"
-                :name="movie.name"
-                :originalName="movie.original_name"
-                :language="movie.original_language"
-                :vote="movie.vote_average"/>
+            <div class="card-wrapper">
+                <MoviesContainer
+                    v-for="movie in tvSeries"
+                    :key="movie.id"
+                    :src="`https://www.themoviedb.org/t/p/w500${movie.poster_path}`"
+                    :titleName="movie.name"
+                    :originalName="movie.original_name"
+                    :language="movie.original_language"
+                    :vote="movie.vote_average"
+                    :overview="movie.overview"/>
+
+            </div>
         </div>
     </main>
   </template>
@@ -31,7 +40,11 @@
         name: "MainComponent",
         props: {
             movies: Array,
-            tvSeries: Array
+            tvSeries: Array,
+            search:{
+                type: String,
+                default:'',
+            }
         },
         components: { MoviesContainer },
 
@@ -45,6 +58,12 @@
         padding: 10px 30px;
         h2{
             color: rgba(245, 245, 245, 0.722);
+        }
+        .card-wrapper{
+            display: flex;
+            margin: 15px 0 60px 0;
+            overflow-y: hidden;
+            overflow-x: scroll;
         }
     }
   </style>
