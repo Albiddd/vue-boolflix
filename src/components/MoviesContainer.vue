@@ -28,9 +28,14 @@
     
                     <div class="info">
                         <strong>Vote: </strong>
-                        {{ Math.floor(vote / 2) }}
-                    </div>
 
+                        <font-awesome-icon v-for="index in stars"
+                        :key="index" icon="fa-solid fa-star" />
+                        <font-awesome-icon v-for="index in 5-stars"
+                        :key="index" icon="fa-regular fa-star" />
+                        
+                    </div>
+        
                     <div class="info">
                         <strong>Overview: </strong>
                         {{ overview }}
@@ -58,7 +63,11 @@
 
         }
     },
-
+    computed:{
+        stars(){
+           return Math.floor(this.vote / 2)
+        }
+    }
   }
   </script>
   
