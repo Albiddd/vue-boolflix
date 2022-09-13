@@ -4,6 +4,26 @@
             <div class="logo">
                 <img @click="$emit('reset')" src="../assets/Boolflix-logo.png" alt="">
             </div>
+            <div class="nav">
+                <!-- <span @click="$emit('home')" :class="[isActive ? 'active' : '']" >
+                    Home
+                </span>
+                <span @click="$emit('showMovies')" >
+                    Movies
+                </span>
+                <span @click="$emit('showTv')" >
+                    TV Series
+                </span> -->
+
+                <span v-for="category,i in categories"
+                :key="i"
+                :class="i == active? 'active' : ''"
+                @click="$emit('selectedCat', i)">
+
+                {{category}}
+                </span>
+
+            </div>
             <div class="search-bar">    
                 <input v-model="search" type="text" @keyup.enter="$emit('search', search)" placeholder="Search a title">
                 <div class="search-button">
@@ -18,12 +38,15 @@
   export default {
     name: 'HeaderBar',
     props: {
+        active: Number,
     },
     data(){
         return{
             search:'',
+            categories: ['Home', 'Movies', 'TV Series']
         }
-    }
+    },
+
   }
   </script>
   
@@ -41,10 +64,25 @@
                 padding-top: 5px;
                 cursor: pointer;
             }
+            .nav{
+                color: rgba(245, 245, 245, 0.842);
+                font-weight: 600;
+                span{
+                    padding: 0 8px;
+                    cursor: pointer;
+                    transition: linear 0.2s;
+                    &:hover{
+                        color: rgba(245, 245, 245, 0.684);
+                    }
+                }
+                .active{
+                    color: white;
+                }
+            }
             .search-bar{
                 display: flex;
                 height: 36px;
-                border: 2px solid rgba(255, 255, 255, 0.367);
+                border: 2px solid rgba(245, 245, 245, 0.842);
                 input{
                     background-color: rgba(0, 0, 0, 0.282);
                     padding: 5px;

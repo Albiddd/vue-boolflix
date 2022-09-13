@@ -1,6 +1,6 @@
 <template>
     <main>
-        <div>
+        <div v-show="showMovies == true">
             <h2>{{search == '' ? 'Popular Movies' : 'Movies Found'}}</h2>
             <div class="card-wrapper">
 
@@ -16,7 +16,7 @@
 
             </div>
         </div>
-        <div>
+        <div v-show="showTv == true">
             <h2>{{search =='' ? 'Popular TV Series' : 'TV Series Found'}}</h2>
             <div class="card-wrapper">
                 <MoviesContainer
@@ -44,7 +44,9 @@
             search:{
                 type: String,
                 default:'',
-            }
+            },
+            showMovies: Boolean,
+            showTv: Boolean
         },
         components: { MoviesContainer },
 
@@ -57,7 +59,7 @@
     main{
         padding: 10px 30px;
         h2{
-            color: rgba(245, 245, 245, 0.722);
+            color: rgba(245, 245, 245, 0.842);
         }
         .card-wrapper{
             display: flex;

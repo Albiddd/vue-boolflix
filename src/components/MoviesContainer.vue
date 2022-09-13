@@ -34,7 +34,7 @@
                         <font-awesome-icon v-for="index in stars"
                         :key="index" icon="fa-solid fa-star" />
                         <font-awesome-icon v-for="index in 5-stars"
-                        :key="index+1000" icon="fa-regular fa-star" />
+                        :key="index+stars" icon="fa-regular fa-star" />
                         
                     </div>
         

@@ -1,12 +1,7 @@
 <template>
   <div id="app">
-    <HeaderBar @search="onSearch" @reset="reset" />
-    <MainComponent :movies="movies" :tvSeries="tvSeries" :search="query" />
-    <!-- <ul>
-      <li v-for="movie in movies" :key="movie.id" >
-        {{movie.original_title}}
-      </li>
-    </ul> -->
+    <HeaderBar @search="onSearch" @reset="reset" @selectedCat="selectCat" :active="currentCat" />
+    <MainComponent :movies="movies" :tvSeries="tvSeries" :search="query" :showMovies="showMovies" :showTv="showTv" />
   </div>
 </template>
 
@@ -28,6 +23,9 @@ export default {
       api_key: '25c2b2a4e398c512c00e56a4e4c2468a',
       query: '',
       BASE_URI: 'https://api.themoviedb.org/3',
+      showMovies: true,
+      showTv: true,
+      currentCat: 0,
     }
   },
 
@@ -80,10 +78,29 @@ export default {
         })
       },
       reset(){
-        this.query = ''
-        this.fetchPopularMovies()
-        this.fetchPopularSeries()
-      }
+        this.query = '';
+        this.fetchPopularMovies();
+        this.fetchPopularSeries();
+        this.currentCat = 0;
+        this.showMovies = true;
+        this.showTv = true;
+      },
+
+      selectCat(i){
+        if(i == 1){
+          this.showMovies = true;
+          this.showTv = false;
+        } else if(i == 2){
+          this.showMovies = false;
+          this.showTv = true;
+        }else{
+          this.showMovies = true;
+          this.showTv = true;
+        }
+        this.currentCat = i;
+        console.log(this.currentCat)
+      },
+
   },
   beforeMount(){
     this.fetchPopularMovies()
