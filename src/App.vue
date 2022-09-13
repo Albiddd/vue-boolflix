@@ -98,7 +98,6 @@ export default {
           this.showTv = true;
         }
         this.currentCat = i;
-        console.log(this.currentCat)
       },
 
   },
