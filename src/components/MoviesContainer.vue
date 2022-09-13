@@ -2,13 +2,12 @@
 
         <div class="movie-card">
 
-                <img v-if="src !== `https://www.themoviedb.org/t/p/w500null`"
-                :src="src" :alt="originalName" class="poster" />
-                
-                <img v-else 
-                class="empty-img" src="../assets/no-image.jpg" :alt="originalName" />
-
-
+            <img v-if="src !== `https://www.themoviedb.org/t/p/w500null`"
+            :src="src" :alt="originalName" class="poster" />
+            
+            <img v-else 
+            class="empty-img" src="../assets/no-image.jpg" :alt="originalName" />
+           
             
             <div class="info-container">
                 
@@ -78,6 +77,7 @@
   
     .movie-card{
         position: relative;
+        max-height: 455px;
 
         .poster{
             width: 300px;
@@ -88,6 +88,7 @@
         .empty-img{
             width: 300px;
             height: 100%;
+            border-radius: 8px;
         }
         .info-container{
             position: absolute;
@@ -102,6 +103,7 @@
             align-items: center;
             transition: linear opacity 0.2s;
             opacity: 0;
+            overflow-y: auto;
             .info-box{
                 padding: 20px;
                 font-size: 14px;

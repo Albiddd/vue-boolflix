@@ -5,15 +5,7 @@
                 <img @click="$emit('reset')" src="../assets/Boolflix-logo.png" alt="">
             </div>
             <div class="nav">
-                <!-- <span @click="$emit('home')" :class="[isActive ? 'active' : '']" >
-                    Home
-                </span>
-                <span @click="$emit('showMovies')" >
-                    Movies
-                </span>
-                <span @click="$emit('showTv')" >
-                    TV Series
-                </span> -->
+                
 
                 <span v-for="category,i in categories"
                 :key="i"
@@ -27,7 +19,7 @@
             <div class="search-bar">    
                 <input v-model="search" type="text" @keyup.enter="$emit('search', search)" placeholder="Search a title">
                 <div class="search-button">
-                    <img src="../assets/search.png" alt="">
+                    <img @click="$emit('search', search)" src="../assets/search.png" alt="">
                 </div>
             </div>
         </div>

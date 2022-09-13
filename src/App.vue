@@ -116,6 +116,6 @@ export default {
     width: 100%;
     height: 100vh;
     background-color: black;
-   overflow: hidden;
+    overflow: hidden;
   }
 </style>
